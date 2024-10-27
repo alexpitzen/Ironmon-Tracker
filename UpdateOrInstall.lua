@@ -7,8 +7,8 @@ UpdateOrInstall = {
 	trackerFileName = "Ironmon-Tracker.lua",
 	slash = package.config:sub(1,1) or "\\", -- Windows is \ and Linux is /
 	TAR_URL = "https://github.com/alexpitzen/Ironmon-Tracker/archive/fix_shiny.tar.gz",
-	archiveName = "Ironmon-Tracker-main.tar.gz",
-	archiveFolder = "Ironmon-Tracker-main",
+	archiveName = "Ironmon-Tracker-fix_shiny.tar.gz",
+	archiveFolder = "Ironmon-Tracker-fix_shiny",
 }
 
 -- Beta testers can have this enabled to receive live updates from "beta-test" branch
