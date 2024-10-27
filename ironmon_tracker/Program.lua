@@ -636,19 +636,19 @@ function Program.updatePokemonTeams()
 		local personality = Memory.readdword(GameSettings.pstats + addressOffset)
 		local trainerID = Memory.readdword(GameSettings.pstats + addressOffset + 4)
 
-		if personality ~= 0 or trainerID ~= 0 then
-			local pokemon = Program.readNewPokemon(GameSettings.pstats + addressOffset, personality)
-			if Program.validPokemonData(pokemon) then
-				Tracker.verifyDataForPlayer(pokemon.trainerID)
+		-- if personality ~= 0 or trainerID ~= 0 then
+		local pokemon = Program.readNewPokemon(GameSettings.pstats + addressOffset, personality)
+		if Program.validPokemonData(pokemon) then
+			Tracker.verifyDataForPlayer(pokemon.trainerID)
 
-				-- Include experience information for each Pokemon in the player's team
-				pokemon.currentExp, pokemon.totalExp = Program.getNextLevelExp(pokemon.pokemonID, pokemon.level, pokemon.experience)
+			-- Include experience information for each Pokemon in the player's team
+			pokemon.currentExp, pokemon.totalExp = Program.getNextLevelExp(pokemon.pokemonID, pokemon.level, pokemon.experience)
 
-				Program.GameData.PlayerTeam[i] = pokemon
-			end
-		else
-			Program.GameData.PlayerTeam[i] = nil
+			Program.GameData.PlayerTeam[i] = pokemon
 		end
+		-- else
+		-- 	Program.GameData.PlayerTeam[i] = nil
+		-- end
 
 		-- Then lookup information on the opposing Pokemon
 		personality = Memory.readdword(GameSettings.estats + addressOffset)
