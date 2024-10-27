@@ -918,7 +918,8 @@ end
 
 function TrackerScreen.canShowBallPicker()
 	-- If the player is in the lab without any Pokemon
-	return Options["Show random ball picker"] and RouteData.Locations.IsInLab[Program.GameData.mapId] and Tracker.getPokemon(1, true) == nil
+	local pokemon = Tracker.getPokemon(1, true)
+	return Options["Show random ball picker"] and RouteData.Locations.IsInLab[Program.GameData.mapId] and (pokemon == nil or not PokemonData.isValid(pokemon.pokemonID))
 end
 
 -- USER INPUT FUNCTIONS
