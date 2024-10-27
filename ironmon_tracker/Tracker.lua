@@ -96,7 +96,7 @@ function Tracker.getPokemon(slotNumber, isOwn, excludeEggs)
 		return nil
 	end
 	-- Personality of 0 is okay for some real trainers, usually occurs in Battle
-	if pokemon.personality == 0 and (pokemon.trainerID or 0) == 0 then
+	if pokemon.personality == 0 and (pokemon.trainerID or 0) == 0 and not isOwn then
 		return nil
 	end
 
